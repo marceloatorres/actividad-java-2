@@ -26,9 +26,8 @@ public class StringUtil {
 
     public static String ltrim(String s){
         for (int i = 0 ; i < s.length() - 1; i++) {
-            if(s.charAt(i) != ' ') {
+            if(s.charAt(i) != ' ')
                 return s.substring(i);
-            }
         }
         return s;
     }
@@ -36,13 +35,11 @@ public class StringUtil {
     public static String rtrim(String s){
         int position = s.length();
         for (int i = position - 1; i > 0; i--) {
-            if(s.charAt(i) != ' ') {
-                position = i + 1;
-                break;
-            }
+            if(s.charAt(i) != ' ')
+                return s.substring(0,i + 1);
         }
 
-        return s.substring(0,position);
+        return s;
     }
 
     public static String trim(String s){
@@ -53,10 +50,8 @@ public class StringUtil {
         int ocurrencies = 0;
         for(int i = 0; i < s.length(); i++){
             if(c == s.charAt(i)){
-                ocurrencies++;
-                if(n == ocurrencies){
+                if(n == ++ocurrencies)
                     return  i;
-                }
             }
         }
         return  -1;

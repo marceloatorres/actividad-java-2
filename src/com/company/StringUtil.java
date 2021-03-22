@@ -18,23 +18,19 @@ public class StringUtil {
      */
 
     public static String rpad(String s, char c, int n){
-        int lengthString = s.length();
-        for(int i = lengthString; i <= n - lengthString; i++){
+        for(int i = s.length(); i <= n - s.length(); i++){
             s += c;
         }
         return s;
     }
 
     public static String ltrim(String s){
-        int position = 0;
-        for (int i = position ; i < s.length() - 1; i++) {
+        for (int i = 0 ; i < s.length() - 1; i++) {
             if(s.charAt(i) != ' ') {
-                position = i;
-                break;
+                return s.substring(i);
             }
         }
-        return s.substring(position);
-
+        return s;
     }
 
     public static String rtrim(String s){
@@ -47,6 +43,10 @@ public class StringUtil {
         }
 
         return s.substring(0,position);
+    }
+
+    public static String trim(String s){
+        return s.replace(" ", "");
     }
 
     public static int indexOfN(String s, char c, int n){
